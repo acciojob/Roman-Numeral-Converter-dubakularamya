@@ -9,24 +9,23 @@ function convertToRoman(num) {
       6:['I', 1]
     };
 
-  let n=798;
-	let ans=''
-	while(n!=0)
+  let ans=798;
+	while(num!==0)
 		{
 			for(let i in romanMap)
 				{
-					let value = romanMap[i][0];
-					let num = roamanMap[i][0];
-					if(num<=n)
+					let [symbol ,value] = romanMap[i];
+					if(value<=num)
 					{
-						ans = ans + value;
-						n = n-num;
+						ans += value;
+						ans -= symbol;
 						break;
 					}
 				}
 		}
 return ans;
 }
+module.exports = convertToRoman;
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
 
 // console.log(convertToRoman(36));
